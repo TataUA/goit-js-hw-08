@@ -13,7 +13,7 @@ forDataFill();
 
 
 function onInputForm(e) {
-    dataForm[e.target.name] = e.target.value;
+    dataForm[e.target.name] = e.target.value.trim();
     
     const dataJSON = JSON.stringify(dataForm);
 
@@ -22,6 +22,10 @@ function onInputForm(e) {
 
 function onSubmitForm(e) {
     e.preventDefault();
+
+    if(!email.value || !message.value) {
+        return alert(`Attention! All fields must be filled!`);
+    }
     
     console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
 
