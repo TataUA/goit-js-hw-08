@@ -11,7 +11,9 @@ function onPlay({seconds}) {
     localStorage.setItem(STORAGE_KEY, seconds);
 };
 
-player.setCurrentTime(localStorage.getItem(STORAGE_KEY)).then(function(seconds) {
+player.setCurrentTime(localStorage.getItem(STORAGE_KEY) || 0);
+
+/*player.setCurrentTime(localStorage.getItem(STORAGE_KEY)).then(function(seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
@@ -22,7 +24,7 @@ player.setCurrentTime(localStorage.getItem(STORAGE_KEY)).then(function(seconds) 
             // some other error occurred
             break;
     }
-});
+});*/
 
 
 
